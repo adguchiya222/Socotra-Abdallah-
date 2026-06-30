@@ -1,0 +1,6 @@
+{
+  "name": "Socotra Coffee Storefront and Admin",
+  "description": "Authentic Socotra Coffee digital storefront and custom product catalog management console for Menus and Blends.",
+  "requestFramePermissions": ["camera", "microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

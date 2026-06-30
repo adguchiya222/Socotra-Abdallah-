@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-coffee-cream: #FAF7EE;
+  --color-coffee-navy: #0D2D3A;
+  --color-coffee-gold: #C4A484;
+  --color-coffee-accent: #B88A58;
+  --font-display: "Fredoka", sans-serif;
+  --font-sans: "Outfit", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+/* Base custom styles to represent the PDF physical menu aesthetic */
+@layer base {
+  body {
+    background-color: var(--color-coffee-cream);
+    color: var(--color-coffee-navy);
+    font-family: var(--font-sans);
+  }
+}
+
+/* Beautiful dashed list separator in menus */
+.menu-dots {
+  flex-grow: 1;
+  border-bottom: 2px dashed rgb(13, 45, 58, 0.25);
+  margin: 0 8px;
+  position: relative;
+  top: -4px;
+}
+
+/* Custom scrollbar for premium chic look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #0D2D3A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B88A58;
+}
+
+/* Custom doodles using styled lines */
+.arabic-rtl {
+  direction: rtl;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Shake/bounce soft keyframes for active navigation or visual cues */
+@keyframes softBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.animate-soft {
+  animation: softBounce 3s ease-in-out infinite;
+}
