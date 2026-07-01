@@ -2,7 +2,6 @@ import express from "express";
 import path from "path";
 import fs from "fs/promises";
 import { fileURLToPath } from "url";
-import { createServer as createViteServer } from "vite";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -740,12 +739,9 @@ async function setupServer() {
   await ensureDB();
 
   if (process.env.NODE_ENV !== "production") {
-    console.log("Setting up server with Vit middleware (development)...");
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
-    app.use(vite.middlewares);
+    // In development, Vite runs as a separate process (handles frontend + proxies API).
+    // This server only provides the API endpoints.
+    console.log("Starting API server in development mode (Vite runs separately)...");
   } else {
     console.log("Serving static files for production...");
     const distPath = path.join(process.cwd(), "dist");
